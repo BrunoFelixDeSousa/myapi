@@ -27,10 +27,15 @@ public class UsuarioService {
 
 
     public Usuario update(Integer id, Usuario obj) {
-        Usuario newObj = findById(id);
-        newObj.setNome(obj.getNome());
-        newObj.setLogin(obj.getLogin());
-        newObj.setSenha(obj.getSenha());
-        return repsoitory.save(newObj);
+            Usuario newObj = findById(id);
+            newObj.setNome(obj.getNome());
+            newObj.setLogin(obj.getLogin());
+            newObj.setSenha(obj.getSenha());
+            return repsoitory.save(newObj);
+    }
+
+    public Usuario create(Usuario obj) {
+        obj.setId(null);
+        return repsoitory.save(obj);
     }
 }

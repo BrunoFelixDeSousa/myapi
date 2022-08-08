@@ -5,7 +5,9 @@ import com.bruno.myapi.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -31,5 +33,12 @@ public class UsuarioResouce {
     public ResponseEntity<Usuario> update(@PathVariable Integer id, @RequestBody Usuario obj) {
         Usuario newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
+    }
+
+    @PostMapping
+    public ResponseEntity<Usuario> create(@RequestBody Usuario obj) {
+        Usuario newobj = service.create(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(newobj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 }
