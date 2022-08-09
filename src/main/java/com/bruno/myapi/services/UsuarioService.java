@@ -38,4 +38,9 @@ public class UsuarioService {
         obj.setId(null);
         return repsoitory.save(obj);
     }
+
+    public void delete(Integer id) {
+        findById(id);
+        repsoitory.delete(id);
+    }
 }
