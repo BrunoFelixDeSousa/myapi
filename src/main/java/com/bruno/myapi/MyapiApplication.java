@@ -23,7 +23,8 @@ public class MyapiApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		Usuario u1 = new Usuario(null, "Bruno Felix", "Bruno", "123");
-		Usuario u2 = new Usuario(null, "Naruto Uzumaki", "Naruto", "123");
+		Usuario u2 = new Usuario(null, "Isaac Felix", "Isacc", "456");
+		Usuario u3 = new Usuario(null, "Naruto Uzumaki", "Naruto", "123");
 
 		usuarioRepsoitory.saveAll(Arrays.asList(u1, u2));
 
