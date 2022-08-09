@@ -41,6 +41,6 @@ public class UsuarioService {
 
     public void delete(Integer id) {
         findById(id);
-        repsoitory.delete(id);
+        repsoitory.deleteById(id);
     }
 }
